@@ -1,22 +1,33 @@
 @echo off
 setlocal
 
-REM === Main Command Dispatcher ===
+REM 
 
-:: Use UTF-8 to support ANSI escape sequences
 chcp 65001 >nul
 
-:: Get the ESC character (ASCII 27)
 for /F %%a in ('"prompt $E & for %%b in (1) do rem"') do set "ESC=%%a"
 
-:: Define color sequences
 set "NAME=%ESC%[32m"
 set "CALL=%ESC%[33m"
 set "COMMAND=%ESC%[36m"
 set "RESET=%ESC%[0m"
 
-:: Check if argument is empty
 if "%~1"=="" (
+  
+    echo "    .:'/*/'\`:,·:~·–:.,                           ,.-:~:'*:~-.°    ,:´'*:^-:´¯'\`:·,         ‘                     ,.-:^*:*:^:~,'       "
+    echo "   /::/:/:::/:::;::::::/\`':.,'                 .·´:::::::::::::::;   '/::::/::::::::::;¯'\`*:^:-.,  ‘             ,:´:::::::::::::::/_‚     "
+    echo " /·*'\`·´¯'\`^·-~·:–-'::;:::'\`;              /::;:-·~^*^~-:;:/ ° /·´'*^-·´¯'\`^·,/::::::::::::'\`:,            /::;:-·^*'*'^~-;:/::/\`;   '"
+    echo " '\\                       '\`;::'i‘        ,.-/:´     .,       ;/     '\`,             ¯'\`*^·-:;::::::'\\' ‘        /:´    ,. –.,_,.'´::/:::';' '"
+    echo "   '\`;        ,– .,        'i:'/        /::';      ,'::\`:~.-:´;       '\`·,                     '\`·;:::i'‘     ,/    ,:´';         ;'´¯\`,:::'i' "
+    echo "     i       i':/:::';       ;/'        /;:- ´        \`'·–·;:'/' _        '|       .,_             \\:'/'   ' ,'     ';:::\`,       ,:     ';::i‘ "
+    echo "     i       i/:·'´       ,:''        /     ;:'\`:.., __,.·'::/:::';       'i       'i:::'\`·,          i/' ‘   ;      ';:::/:\`::^*:´;      i::';'‘"
+    echo "     '; '    ,:,     ~;'´:::'\`:,    ;'      ';:::::::::::::::/;;::/       'i       'i::/:,:          /'      i       \`;/::::::::,·´      ';:/'‘ "
+    echo "     'i      i:/\\       \`;::::/:'\`;' ¦         '\`·-·:;::·-·'´   ';:/‘        ;      ,'.^*'´     _,.·´‘       ';         '\` *^*'´         .'/‘   "
+    echo "      ;     ;/   \\       '\`:/::::/' '\\                         /'          ';     ;/ '\`*^*'´¯               '\\                         /     "
+    echo "      ';   ,'       \\         '\`;/'    \`·,                  ,·'  '           \\    /                            \`·,                ,-·´ '      "
+    echo "       \`'*´          '\`~·-·^'´           '\`~·- . , . -·'´                  '\`^'´‘                               '\`*~·––·~^'´  '          "
+    echo "                                                                                                                    '                      "
+    
     echo Usage:
     echo   %CALL%"repo%RESET% %COMMAND%"-new"%RESET% %NAME%"project-name"%RESET%
     echo   %CALL%"repo%RESET% %COMMAND%"-edit"%RESET%
@@ -26,7 +37,8 @@ if "%~1"=="" (
     echo   %CALL%"repo%RESET% %COMMAND%"-clone"%RESET% %NAME%"repository-url"%RESET%
     exit /b 1
 )
-REM Store the commands folder path
+
+REM 
 set "cmdfolder=%~dp0commands"
 
 if "%1"=="-new" (
@@ -41,9 +53,9 @@ if "%1"=="-edit" (
 )
 
 if "%1"=="-push" (
-    REM Remove the first argument (-push)
+    REM
     shift
-    REM Pass remaining arguments (only commit message expected)
+    REM 
     call "%cmdfolder%\push.cmd" %*
     exit /b %errorlevel%
 )
