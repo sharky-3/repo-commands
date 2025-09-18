@@ -11,16 +11,27 @@ set "CALL=%ESC%[33m"
 set "COMMAND=%ESC%[36m"
 set "RESET=%ESC%[0m"
 
-REM Show usage and ASCII art if no arguments
+echo.
+echo ____/\\\\\\\\\______/\\\\\\\\\\\\\\\__/\\\\\\\\\\\\\__________/\\\\\______
+echo  __/\\\///////\\\___\/\\\///////////__\/\\\/////////\\\______/\\\///\\\____   
+echo   _\/\\\_____\/\\\___\/\\\_____________\/\\\_______\/\\\____/\\\/__\///\\\__     
+echo    _\/\\\\\\\\\\\/____\/\\\\\\\\\\\_____\/\\\\\\\\\\\\\/____/\\\______\//\\\_     
+echo     _\/\\\//////\\\____\/\\\///////______\/\\\/////////_____\/\\\_______\/\\\_   
+echo      _\/\\\____\//\\\___\/\\\_____________\/\\\______________\//\\\______/\\\__  
+echo       _\/\\\_____\//\\\__\/\\\_____________\/\\\_______________\///\\\__/\\\____  
+echo        _\/\\\______\//\\\_\/\\\\\\\\\\\\\\\_\/\\\_________________\///\\\\\/_____ 
+echo         _\///________\///__\///////////////__\///____________________\/////_______
+echo.
+
 if "%~1"=="" (
 
     echo Usage:
     echo   %CALL%repo%RESET% %COMMAND%-new%RESET% %NAME%project-name%RESET%
     echo   %CALL%repo%RESET% %COMMAND%-edit%RESET%
     echo   %CALL%repo%RESET% %COMMAND%-push%RESET%
-    echo   %CALL%repo% %COMMAND%-commit%RESET% %NAME%message%RESET%
-    echo   %CALL%repo% %COMMAND%-sync%RESET% %NAME%optional commit message%RESET%
-    echo   %CALL%repo% %COMMAND%-clone%RESET% %NAME%repository-url%RESET%
+    echo   %CALL%repo%COMMAND%-commit%RESET% %NAME%message%RESET%
+    echo   %CALL%repo%COMMAND%-sync%RESET% %NAME%optional commit message%RESET%
+    echo   %CALL%repo%COMMAND%-clone%RESET% %NAME%repository-url%RESET%
     exit /b 1
 )
 
